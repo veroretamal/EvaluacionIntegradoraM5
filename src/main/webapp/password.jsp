@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Password Reset - SB Admin</title>
+        <title>Recuperar Password</title>
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
-    <body class="bg-primary">
+    <body class="bg-secondary">
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
@@ -18,24 +18,21 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Password Recovery</h3></div>
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Recupera tu password</h3></div>
                                     <div class="card-body">
-                                        <div class="small mb-3 text-muted">Enter your email address and we will send you a link to reset your password.</div>
+                                        <div class="small mb-3 text-muted">Ingresa un email asociado a tu AlkeWallet y te enviaremos un link para continuar.</div>
                                         <form>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
-                                                <label for="inputEmail">Email address</label>
+                                                <input class="form-control" id="inputEmail" type="email" placeholder="nombre@mail.com" />
+                                                <label for="inputEmail">Email</label>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="login.jsp">Return to login</a>
-                                                <a class="btn btn-primary" href="login.jsp">Reset Password</a>
+                                                <a class="small" href="login.jsp">Volver al login</a>
+                                                <a class="btn btn-dark" href="login.jsp">Resetear password</a>
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
-                                    </div>
-                                </div>
+                                                                </div>
                             </div>
                         </div>
                     </div>

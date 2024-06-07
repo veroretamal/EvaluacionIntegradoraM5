@@ -20,7 +20,9 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                     <div class="card-body">
-                                        <form>
+
+                                    <!-- Se ejecuta el login-->
+                                        <form action="EvaluacionIntegradoraM5/login" method="get">
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="ingresoEmail" type="email" placeholder="nombre@mail.com" />
                                                 <label for="ingresoEmail">Ingrese su email</label>
@@ -30,13 +32,14 @@
                                                 <label for="inputPassword">Password</label>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="password.html">Recuperar password</a>
-                                                <a class="btn btn-dark" href="index.jsp">Login</a>
+                                                <a class="small" href="password">Recuperar password</a>
+                                                 <input type="submit" value="Log" class="btn btn-dark">
                                             </div>
+
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="register.jsp">Registrate en Alkebanco!</a></div>
+                                        <div class="small"><a href="register">Registrate en Alkebanco</a></div>
                                     </div>
                                 </div>
                             </div>

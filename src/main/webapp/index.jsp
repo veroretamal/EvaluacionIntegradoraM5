@@ -4,20 +4,21 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Dashboard - SB Admin</title>
+   
+        <title>Pagina principal</title>
+
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
+
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <!-- Navbar Brand-->
+            <!-- Navegador-->
             <a class="navbar-brand ps-3" href="index.jsp">Mi AlkeWallet</a>
-            <!-- Sidebar Toggle-->
+            <!-- Barra lateral-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
+            <!-- Buscador-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
                     <input class="form-control" type="text" placeholder="Search for..." aria-label="Busca..." aria-describedby="btnNavbarSearch" />
@@ -29,7 +30,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="login.jsp">Logout</a></li>
+                        <li><a class="dropdown-item" href="/login.jsp">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -47,9 +48,9 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="deposit.jsp">Realizar deposito</a>
-                                    <a class="nav-link" href="transferir.jsp">Transferir</a>
-                                    <a class="nav-link" href="convertir.jsp">Convertir Monedas</a>
+                                    <a class="nav-link" href="deposit">Realizar deposito</a>
+                                    <a class="nav-link" href="transferir">Transferir</a>
+                                    <a class="nav-link" href="convertir">Convertir Monedas</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -65,8 +66,8 @@
                                     </a>
                                     <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="agregarContacto.jsp">Agregar</a>   
-                                            <a class="nav-link" href="verContactos.jsp">Ver</a>
+                                            <a class="nav-link" href="agregarContacto">Agregar</a>   
+                                            <a class="nav-link" href="verContactos">Ver</a>
                                     </div>
                                     
                                  

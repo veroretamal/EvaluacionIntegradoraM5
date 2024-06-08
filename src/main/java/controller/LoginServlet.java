@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
 //                if(user.getPassword().equals(password)) {
 //                    System.out.println("Login exitoso!!! " + user);
 //                    req.setAttribute("usuario", user);
-//                    getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
+//                    getServletContext().getRequestDispatcher("/index.html").forward(req, resp);
 //                }
 //            }
 //        }

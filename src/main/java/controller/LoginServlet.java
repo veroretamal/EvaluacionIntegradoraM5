@@ -38,28 +38,4 @@ public class LoginServlet extends HttpServlet {
         resp.sendRedirect("login.jsp"); // Redireccionar al usuario de nuevo al formulario de inicio de sesión
     }
 
-
-
-//    @Override
-//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//
-//
-//        System.out.println("Entre al servlet do get");
-//        String email = req.getParameter("inputEmail");
-//        String password = req.getParameter("inputPassword");
-//
-//        UserService service = new UserService();
-//        List<User> usuarios = service.getUsers();
-//
-//
-//        for(User user: usuarios) {
-//            if(user.getEmail().equals(email)) {
-//                if(user.getPassword().equals(password)) {
-//                    System.out.println("Login exitoso!!! " + user);
-//                    req.setAttribute("user", user);
-//                    getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
-//                }
-//            }
-//        }
-//    }
 }

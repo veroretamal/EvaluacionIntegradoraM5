@@ -28,16 +28,6 @@ public class UserRep implements Repository<User>{
         return user;
     }
 
-    public static void main(String[] args) {
-        UserRep rep = new UserRep();
-        User user = new User("Verónica", "Retamal", "vero@mail.com", "122", 0.0);
-        try {
-            rep.create(user);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
     @Override
     public void create(User user) throws SQLException {
         String sql = String.format("INSERT INTO user (name, lastname, email, password, balance) VALUES (?, ?, ?, ?, ?)");

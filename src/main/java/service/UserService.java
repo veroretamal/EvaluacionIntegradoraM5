@@ -15,4 +15,26 @@ public class UserService {
             throw new RuntimeException(e);
         }
     }
-}
+    // Lógica para depositar en la base de datos
+    // Actualizar el balance del usuario
+        public void deposit(User user, double amount) throws SQLException {
+
+            double newBalance = user.getBalance() + amount;
+            user.setBalance(newBalance);
+            repository.update(user);
+        }
+    // Lógica para retirar de la base de datos
+    // Verificar si el usuario tiene suficiente saldo
+        public void withdraw(User user, double amount) throws SQLException {
+
+            if (user.getBalance() >= amount) {
+                // Actualizar el balance del usuario
+                double newBalance = user.getBalance() - amount;
+                user.setBalance(newBalance);
+                repository.update(user);
+            } else {
+                throw new IllegalArgumentException("Saldo insuficiente para realizar el retiro");
+            }
+        }
+    }
+

@@ -16,7 +16,7 @@
 <div id="layoutAuthentication">
     <div id="layoutAuthentication_content">
         <main>
-          <input type="hidden" id="status" value="<%= status %>">
+
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-5 ">

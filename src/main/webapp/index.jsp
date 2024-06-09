@@ -1,6 +1,5 @@
+<%@ page import="model.User" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@page import="model*"%>
-<% User user = (User) request.getAttribute("user"); %>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -20,7 +19,7 @@
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Barra Navegador-->
         <a class="navbar-brand ps-3" href="index.html">ALkeWallet</a>
-        <!-- Sidebar Toggle-->
+        <!-- Sidebar-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
 
     </nav>
@@ -49,44 +48,47 @@
         </div>
             <!-- Contenido-->
             <div id="layoutSidenav_content">
-                <main>
-                    <div class="container mt-3">
-                     <input type="hidden" id="status" value="<%= status %>">
-                        <h2 class="text-center">Bienvenida <%=user.getName() %>< a tu AlkeWallet</h2>
-                        <div class="d-flex justify-content-center mt-3">
-                            <div class="card mb-3" style="max-width: 18rem;">
-                                <div class="card-body">
-                                    <form action="operacion" method="post">
-                                        <div class="form-group">
-                                            <label for="monto">
-                                                <h5>Ingrese cantidad:</h5>
-                                            </label>
-                                            <input type="number" id="monto" name="monto" class="form-control" />
-                                            <h5 class="mt-2">Saldo: $<%=usuario.getBalance() %></h5>
-                                            <p class="text-danger fs-5"></p>
-                                        </div>
-                                        <div id="liveAlertPlaceholder">
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">
-                                                    <button type="submit" id="operacionDepositar" name="operacionDepositar"
-                                                        class="btn btn-secondary w-100">
-                                                        Depositar
-                                                    </button>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <button type="submit" id="operacionRetirar" name="operacionRetirar"
-                                                        class="btn btn-secondary w-100">
-                                                        Retirar
-                                                    </button>
-                                                </li>
-                                             
-                                            </ul>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+               <main>
+                   <div class="container mt-3">
+                       <% User user = (User) session.getAttribute("user");
+                          String status = (String) session.getAttribute("status"); %>
+                       <input type="hidden" id="status" value="<%= status %>">
+                       <h2 class="text-center">Bienvenida a tu AlkeWallet</h2>
+                       <div class="d-flex justify-content-center mt-3">
+                           <div class="card mb-3" style="max-width: 18rem;">
+                               <div class="card-body">
+                                   <form action="operacion" method="post">
+                                       <div class="form-group">
+                                           <label for="monto">
+                                               <h5>Ingrese cantidad:</h5>
+                                           </label>
+                                           <input type="number" id="monto" name="monto" class="form-control" />
+                                           <% if(user != null) { %>
+                                               <h5 class="mt-2">Saldo: $<%= user.getBalance() %> </h5>
+                                           <% } %>
+
+                                       </div>
+                                       <div id="liveAlertPlaceholder">
+                                           <ul class="list-group list-group-flush">
+                                               <li class="list-group-item">
+                                                   <button type="submit" id="Deposit" name="Deposit" class="btn btn-secondary w-100">
+                                                       Depositar
+                                                   </button>
+                                               </li>
+                                               <li class="list-group-item">
+                                                   <button type="submit" id="Withdrawal" name="Deposit" class="btn btn-secondary w-100">
+                                                       Retirar
+                                                   </button>
+                                               </li>
+                                           </ul>
+                                       </div>
+                                   </form>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </main>
+
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">

@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -39,8 +40,7 @@ public class UserRep implements Repository<User>{
 
     @Override
     public void create(User user) throws SQLException {
-        String sql = String.format("INSERT INTO user (name, lastname, email, password, balance) VALUES (?, ?, ?, ?, ?)",
-                user.getName(), user.getLastname(), user.getEmail(), user.getPassword(), user.getBalance()); // Excluir ID
+        String sql = String.format("INSERT INTO user (name, lastname, email, password, balance) VALUES (?, ?, ?, ?, ?)");
 
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -57,8 +57,23 @@ public class UserRep implements Repository<User>{
     }
         @Override
     public List<User> read() throws SQLException {
-        return null;
-    }
+            List<User> users = new ArrayList<>();
+            String sql = "SELECT * FROM user";
+
+            try (Connection connection = getConnection();
+                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                 ResultSet resultSet = preparedStatement.executeQuery()) {
+
+                while (resultSet.next()) {
+                    users.add(createUser(resultSet));
+                }
+            } catch (SQLException e) {
+                e.printStackTrace(); // Maneja o lanza la excepción según corresponda
+            }
+
+            return users;
+
+        }
 
     @Override
     public void update(User user) throws SQLException {

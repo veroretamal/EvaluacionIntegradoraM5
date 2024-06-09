@@ -1,5 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,25 +16,27 @@
 <div id="layoutAuthentication">
     <div id="layoutAuthentication_content">
         <main>
+          <input type="hidden" id="status" value="<%= status %>">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-5 ">
                         <div class="card shadow-lg border-0 rounded-lg mt-5">
                             <div class="card-header"><h3 class="text-center font-weight-light my-4">Inicio de sesión</h3></div>
                             <div class="card-body">
-                                <form>
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
-                                        <label for="inputEmail">Correo electrónico</label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="inputPassword" type="password" placeholder="Password" />
-                                        <label for="inputPassword">Password</label>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                        <a class="btn btn-secondary" href="index.jsp">Login</a>
-                                    </div>
-                                </form>
+                               <form method="post" action="login">
+                                   <div class="form-floating mb-3">
+                                       <input class="form-control" name="email" id="inputEmail" type="email" placeholder="name@example.com" />
+                                       <label for="inputEmail">Correo electrónico</label>
+                                   </div>
+                                   <div class="form-floating mb-3">
+                                       <input class="form-control" name="password" id="inputPassword" type="password" placeholder="******" />
+                                       <label for="inputPassword">Password</label>
+                                   </div>
+                                   <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                       <button type="submit" class="btn btn-secondary">Login</button>
+                                   </div>
+                               </form>
+
                             </div>
                         </div>
                     </div>

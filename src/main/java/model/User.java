@@ -1,8 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class User { //se definen los atributos que tendrá el usuario de la AlkeWallet
     private int id;
     private String name;

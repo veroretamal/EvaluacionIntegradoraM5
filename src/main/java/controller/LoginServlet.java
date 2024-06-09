@@ -9,26 +9,57 @@ import model.User;
 import service.UserService;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
+import java.util.Optional;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
+
+
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("Conexion exitosa a LoginServlet con do get");
-        String name = req.getParameter("nombre");
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String email = req.getParameter("email");
         String password = req.getParameter("password");
+
         UserService service = new UserService();
-        List<User> users = service.getUsers();
-        for(User user: users) {
-            if(user.getName().equals(name)) {
-                if(user.getPassword().equals(password)) {
-                    System.out.println("Login exitoso!!! " + user);
-                    req.setAttribute("usuario", user);
-                    getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
-                }
+        List<User> usuarios = service.getUsers();
+
+        for (User user : usuarios) {
+            if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
+                System.out.println("Login exitoso!!! " + user);
+                req.getSession().setAttribute("user", user); // Almacenar usuario en sesión
+                resp.sendRedirect("index.jsp"); // Redireccionar al usuario a la página de inicio
+                return; // Salir del método doPost()
             }
         }
-    }
+
+        // Si llegamos aquí, el inicio de sesión falló
+        resp.sendRedirect("login.jsp"); // Redireccionar al usuario de nuevo al formulario de inicio de sesión
     }
 
+
+
+//    @Override
+//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//
+//
+//        System.out.println("Entre al servlet do get");
+//        String email = req.getParameter("inputEmail");
+//        String password = req.getParameter("inputPassword");
+//
+//        UserService service = new UserService();
+//        List<User> usuarios = service.getUsers();
+//
+//
+//        for(User user: usuarios) {
+//            if(user.getEmail().equals(email)) {
+//                if(user.getPassword().equals(password)) {
+//                    System.out.println("Login exitoso!!! " + user);
+//                    req.setAttribute("user", user);
+//                    getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
+//                }
+//            }
+//        }
+//    }
+}

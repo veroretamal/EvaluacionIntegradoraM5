@@ -30,7 +30,7 @@
                                         <label for="inputPassword">Password</label>
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                        <a class="btn btn-secondary" href="index.html">Login</a>
+                                        <a class="btn btn-secondary" href="index.jsp">Login</a>
                                     </div>
                                 </form>
                             </div>

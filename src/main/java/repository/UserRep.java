@@ -1,5 +1,4 @@
 package repository;
-import repository.Repository;
 import model.User;
 import util.DBConnection;
 
@@ -20,40 +19,42 @@ public class UserRep implements Repository<User>{
     private User createUser(ResultSet resultSet) throws SQLException {
         User user = new User();
         user.setId(resultSet.getInt("id"));
-        user.setName(resultSet.getString("nombre"));
-        user.setLastname(resultSet.getString("apellido"));
+        user.setName(resultSet.getString("name"));
+        user.setLastname(resultSet.getString("lastname"));
         user.setEmail(resultSet.getString("email"));
         user.setPassword(resultSet.getString("password"));
         user.setBalance(resultSet.getDouble("balance"));
         return user;
-
     }
 
     public static void main(String[] args) {
         UserRep rep = new UserRep();
-        User user = new User(1, "vero", "retamal", "vero@mail.com", "122");
+        User user = new User("Verónica", "Retamal", "vero@mail.com", "122", 0.0);
         try {
             rep.create(user);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 
     @Override
     public void create(User user) throws SQLException {
-        String sql = String.format("INSERT INTO user (id, nombre, apellido, email, password, balance)" + "VALUES ('%d', '%s', '%s','%s', '%s', '%s')"
-                , user.getId(), user.getName(), user.getLastname(), user.getEmail(), user.getPassword(), user.getBalance());
+        String sql = String.format("INSERT INTO user (name, lastname, email, password, balance) VALUES (?, ?, ?, ?, ?)",
+                user.getName(), user.getLastname(), user.getEmail(), user.getPassword(), user.getBalance()); // Excluir ID
 
         try (Connection connection = getConnection();
-
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, user.getName());
+            preparedStatement.setString(2, user.getLastname());
+            preparedStatement.setString(3, user.getEmail());
+            preparedStatement.setString(4, user.getPassword());
+            preparedStatement.setDouble(5, user.getBalance());
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
         @Override
     public List<User> read() throws SQLException {
         return null;

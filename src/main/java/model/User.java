@@ -22,11 +22,15 @@ public class User { //se definen los atributos que tendrá el usuario de la Alke
         this.lastname = lastname;
         this.email = email;
         this.password = password;
-        Double balance;
+
     }
 
-    public User(int id, String name, String lastname, String email, String password, Double balance) {
-
+    public User(String name, String lastname, String email, String password, Double balance) {
+        this.name = name;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+        this.balance= balance;
     }
 
     public int getId() {

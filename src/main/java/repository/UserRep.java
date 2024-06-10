@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+//implementa el Repository para el usuario
 
 public class UserRep implements Repository<User>{
 
@@ -16,7 +17,7 @@ public class UserRep implements Repository<User>{
         private Connection getConnection() throws SQLException {
         return DBConnection.getConnection();
     }
-
+    //se crea el metodo createUser para crear el usuario
     private User createUser(ResultSet resultSet) throws SQLException {
         User user = new User();
         user.setId(resultSet.getInt("id"));
@@ -27,7 +28,7 @@ public class UserRep implements Repository<User>{
         user.setBalance(resultSet.getDouble("balance"));
         return user;
     }
-
+    //el metodo create inserta la información del usuario en la base de datos
     @Override
     public void create(User user) throws SQLException {
         String sql = String.format("INSERT INTO user (name, lastname, email, password, balance) VALUES (?, ?, ?, ?, ?)");
@@ -64,7 +65,7 @@ public class UserRep implements Repository<User>{
             return users;
 
         }
-
+    //se implementan estos metodos vacíos ya que no se utilizaran para esta entrega
     @Override
     public void update(User user) throws SQLException {
 

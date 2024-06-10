@@ -10,7 +10,7 @@ import service.UserService;
 
 import java.io.IOException;
 import java.sql.SQLException;
-
+//Servlet para generar tanto el deposito como retiro en la sesión
 @WebServlet("/operation")
     public class OperationServlet extends HttpServlet {
         @Override
@@ -22,7 +22,7 @@ import java.sql.SQLException;
             String operation = req.getParameter("operation");
 
             // Obtener el monto de la operación
-            double amount = Double.parseDouble(req.getParameter("monto"));
+            double amount = Double.parseDouble(req.getParameter("amount"));
 
             try {
                 if ("Depositar".equals(operation)) {

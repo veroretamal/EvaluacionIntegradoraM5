@@ -49,20 +49,23 @@
             <!-- Contenido-->
             <div id="layoutSidenav_content">
                <main>
+                    <!-- se le da la bienvenida al usuario por el nombre mediante user.getName-->
+                        <!-- Detalle de saldo disponible y operaciones de deposito y retiro-->
                    <div class="container mt-3">
                        <% User user = (User) session.getAttribute("user");
                           String status = (String) session.getAttribute("status"); %>
                        <input type="hidden" id="status" value="<%= status %>">
                        <h2 class="text-center">Bienvenida  <%=user.getName() %> a tu AlkeWallet</h2>
+
                        <div class="d-flex justify-content-center mt-3">
                            <div class="card mb-3" style="max-width: 18rem;">
                                <div class="card-body">
                                    <form action="operation" method="post">
                                        <div class="form-group">
-                                           <label for="monto">
+                                           <label for="amount">
                                                <h5>Ingrese cantidad:</h5>
                                            </label>
-                                           <input type="number" id="monto" name="monto" class="form-control" />
+                                           <input type="number" id="amount" name="amount" class="form-control" />
                                            <% if(user != null) { %>
                                                <h5 class="mt-2">Saldo: $<%= user.getBalance() %> </h5>
                                            <% } %>
@@ -101,6 +104,8 @@
                </main>
 
                 </main>
+
+                <!-- Footer-->
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">

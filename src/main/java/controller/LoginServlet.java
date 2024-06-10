@@ -12,11 +12,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.Optional;
-
+//Servlet para realizar el login
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 
-
+    //Verificar la información entregada en el formulario de login
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
@@ -27,15 +27,15 @@ public class LoginServlet extends HttpServlet {
 
         for (User user : usuarios) {
             if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
-                System.out.println("Login exitoso!!! " + user);
+                System.out.println("Login exitoso "+ user); //verificación del login en la consola
                 req.getSession().setAttribute("user", user); // Almacenar usuario en sesión
-                resp.sendRedirect("index.jsp"); // Redireccionar al usuario a la página de inicio
+                resp.sendRedirect("index.jsp"); // Redireccionar al usuario a su sesión
                 return; // Salir del método doPost()
             }
         }
 
-        // Si llegamos aquí, el inicio de sesión falló
-        resp.sendRedirect("login.jsp"); // Redireccionar al usuario de nuevo al formulario de inicio de sesión
+        // Respuesta ante el fallo del login
+        resp.sendRedirect("login.jsp"); // Redireccionar al usuario al formulario de inicio de sesión
     }
 
 }

@@ -16,7 +16,7 @@
 <div id="layoutAuthentication">
     <div id="layoutAuthentication_content">
         <main>
-
+   <!-- Se realiza el login corroborando la información del correo y la password-->
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-5 ">

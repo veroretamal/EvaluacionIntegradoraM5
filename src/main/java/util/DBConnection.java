@@ -4,7 +4,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-
+//se realiza la conexion a la base de datos de MySQL workbench
 public class DBConnection {
 
     static int port = 3306;
@@ -13,11 +13,9 @@ public class DBConnection {
     private static String user = "root"; //bd usuario
     private static String pass = "310915"; //pass usuario bd
     private static BasicDataSource pool;
-    /*pool: es un objeto que almacenará todos las configuraciones
-     para conectar a la base de datos */
 
-    //metodos
 
+    //metodo para almacenar las configuraciones para la conexion
     public static BasicDataSource getPool() throws SQLException {
         if (pool == null) {
             pool = new BasicDataSource(); //creando un objeto
@@ -30,12 +28,12 @@ public class DBConnection {
         }
         return pool;
     }
-
+    //metodo para obtener la conexion con la base de datos
     public static Connection getConnection() throws SQLException {
         return getPool().getConnection(); //retornar una conexion
     }
 
-
+    //verificación por consola del resultado del metodo anterior
     public static void main(String[] args) throws SQLException {
         Connection pool = getConnection();
         if (pool == null) {
@@ -43,7 +41,6 @@ public class DBConnection {
         } else {
             System.out.println("Conexion exitosa");
         }
-
     }
 }
 

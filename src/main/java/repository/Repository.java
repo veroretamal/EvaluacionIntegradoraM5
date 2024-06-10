@@ -10,7 +10,7 @@ public interface Repository<T>{
     //Create
     void create (T t) throws SQLException;
 
-        //Read
+    //Read
     List<T> read() throws SQLException;
 
     //Update
